@@ -2,17 +2,17 @@ import React from 'react';
 import { Text } from 'react-native';
 import { styles } from './ButtonsStyle';
 
-interface ActivateButtonProps {
+interface BackButtonProps {
     onPress?: () => void;
 }
 
-export function ActivateButton({ onPress }: ActivateButtonProps) {
+export function BackButton({ onPress }: BackButtonProps) {
     return (
         <>
             <Text
                 style={styles.button}
                 onPress={onPress}>
-                activate bat signal
+                Back
             </Text>
         </>
     );

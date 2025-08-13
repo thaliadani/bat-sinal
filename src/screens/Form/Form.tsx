@@ -7,8 +7,9 @@ import { InputLocation } from '../../components/Inputs/InputLocation';
 import { InputObservation } from '../../components/Inputs/InputObservation';
 import { SendButton } from '../../components/Buttons/SendButton';
 import { styles } from './FormStyle';
+import { BackButton } from '../../components/Buttons/BackButton';
 
-export function Form() {
+export function Form({ setShowForm }: { setShowForm: (show: boolean) => void }) {
     return (
         <>
             <View style={styles.containerLogo}>
@@ -23,7 +24,12 @@ export function Form() {
                     <InputObservation></InputObservation>
                     <SendButton></SendButton>
                 </View>
+                
             </ScrollView>
+            
+            <View style={styles.containerBack}>
+                <BackButton onPress={() => setShowForm(false)}></BackButton>
+            </View>
         </>
     );
 }

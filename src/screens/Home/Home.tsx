@@ -4,11 +4,11 @@ import { styles } from './HomeStyle';
 import {Logo} from '../../components/Logo/Logo';
 import {ActivateButton} from '../../components/Buttons/ActivateButton';
 
-export function Home() {
+export function Home({ setShowForm }: { setShowForm: (show: boolean) => void }) {
     return (
         <View style={styles.container}>
             <Logo></Logo>
-            <ActivateButton></ActivateButton>
+            <ActivateButton onPress={() => setShowForm(true)}></ActivateButton>
         </View>
     );
 }
