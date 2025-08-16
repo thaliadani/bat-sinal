@@ -1,15 +1,19 @@
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { ScrollView, View } from 'react-native';
+import { styles } from './FormStyle';
 import { Logo } from '../../components/Logo/Logo';
 import { InputName } from '../../components/Inputs/InputName';
 import { InputCel } from '../../components/Inputs/InputCel';
 import { InputLocation } from '../../components/Inputs/InputLocation';
 import { InputObservation } from '../../components/Inputs/InputObservation';
 import { SendButton } from '../../components/Buttons/SendButton';
-import { styles } from './FormStyle';
 import { BackButton } from '../../components/Buttons/BackButton';
 
-export function Form({ setShowForm }: { setShowForm: (show: boolean) => void }) {
+export function FormScreen({ navigation }: any) {
+    const navToHome = () => {
+        navigation.navigate('Home')
+    };
     return (
         <>
             <View style={styles.containerLogo}>
@@ -24,12 +28,14 @@ export function Form({ setShowForm }: { setShowForm: (show: boolean) => void }) 
                     <InputObservation></InputObservation>
                     <SendButton></SendButton>
                 </View>
-                
+
+
+
+                <View style={styles.containerBack}>
+                    <BackButton onPress={navToHome}></BackButton>
+                </View>
             </ScrollView>
-            
-            <View style={styles.containerBack}>
-                <BackButton onPress={() => setShowForm(false)}></BackButton>
-            </View>
+            <StatusBar style="auto" />
         </>
     );
 }
